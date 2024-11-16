@@ -2,32 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Books; // Model untuk tabel 'books'
-use Illuminate\Http\Request; // Untuk menangani HTTP request
+use App\Models\Books;
+use Illuminate\Http\Request;
 
 class BooksController extends Controller
 {
     /**
-     * Menampilkan daftar semua buku yang ada.
+     * Display a listing of the resource.
      */
     public function index()
     {
         // Mengambil semua data buku dari tabel 'books'
         $books = Books::all();
+
         // Mengembalikan data buku dalam format JSON
         return response()->json($books);
     }
 
     /**
-     * Menampilkan form untuk membuat buku baru (tidak digunakan dalam API RESTful).
+     * Show the form for creating a new resource.
      */
     public function create()
     {
-        // Tidak digunakan dalam API berbasis JSON
+        //
     }
 
     /**
-     * Menyimpan buku baru ke dalam database.
+     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
@@ -51,7 +52,7 @@ class BooksController extends Controller
     }
 
     /**
-     * Menampilkan data dari buku tertentu berdasarkan ID.
+     * Display the specified resource.
      */
     public function show($id)
     {
@@ -70,15 +71,15 @@ class BooksController extends Controller
     }
 
     /**
-     * Menampilkan form untuk mengedit buku tertentu (tidak digunakan dalam API RESTful).
+     * Show the form for editing the specified resource.
      */
     public function edit(Books $books)
     {
-        // Tidak digunakan dalam API berbasis JSON
+        //
     }
 
     /**
-     * Memperbarui data buku tertentu berdasarkan ID.
+     * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
     {
@@ -108,7 +109,7 @@ class BooksController extends Controller
     }
 
     /**
-     * Menghapus buku tertentu berdasarkan ID.
+     * Remove the specified resource from storage.
      */
     public function destroy($id)
     {
